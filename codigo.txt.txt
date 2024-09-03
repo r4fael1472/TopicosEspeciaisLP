@@ -1,0 +1,28 @@
+#Criando a tabela
+
+nomes = ['Abel', 'Ana','Bianca','Peter', 'Rafael', 'Caio', 'Thomas', 'Joaquin', 'Marcus', 'Matheus']
+materias = ['LP1', 'LP2', 'AED1','SO', 'LP3', 'AED2', 'Web0', 'Web1', 'Calc1', 'Calc2']
+
+
+import pandas as pd
+import numpy as np
+
+lista_nomes = []
+lista_materias = []
+lista_notas = []
+
+for nome in nomes:
+    num_materias = np.random.randint(3,11)
+    materias_escolhidas = np.random.choice(materias, size=num_materias, replace=False)
+    for materia in materias_escolhidas:
+        nota = np.round(np.random.random()*10,1)
+        lista_nomes.append(nome)
+        lista_materias.append(materia)
+        lista_notas.append(nota)
+
+#Criando Dicionario
+
+turma = {'nomes': lista_nomes, 'materias' : lista_materias, 'notas' : lista_notas}
+df_turma = pd.DataFrame(turma, columns=['nomes', 'materias', 'notas'])
+
+print(df_turma)
