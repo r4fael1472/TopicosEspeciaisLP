@@ -26,3 +26,6 @@ turma = {'nomes': lista_nomes, 'materias' : lista_materias, 'notas' : lista_nota
 df_turma = pd.DataFrame(turma, columns=['nomes', 'materias', 'notas'])
 
 print(df_turma)
+
+pivo_df = df_turma.pivot(index='materias', columns='nomes', values='notas')
+print(pivo_df)
